@@ -21,7 +21,7 @@ class Personaggio {
   }
 }
 
-class Flora_Fauna {
+class Flora_Fauna { // prof: il testo chiedeva di chiamarla "Trasmutabile"
   PShape shape;
   float x, y;
 
@@ -31,7 +31,7 @@ class Flora_Fauna {
     this.y = y;
   }
   void move() {
-    if (x>width*20/100) {
+    if (x>width*20/100) { 
       this.x -= 5;
     }
   }
@@ -69,10 +69,12 @@ void draw() {
   foglia.move();
   /*tecnicamente il colibrì appare lentamente perché prende tempo per caricare il file, quindi la richiesta 
    della trasformazione lenta è stata 'tecnicamente' assolta ma io aggiungo delay nel caso avessi una macchina potente*/
+   // prof: no, così il colibrì appare istantaneamente, non rispetta il requisito
   if (keyPressed && key == ' ') {
     delay(200);
     colibri.display();
     //tecnicamente il valore sommato di alpha di colibri e foglia è sempre 255: 255+0=255, 0+255=0   :)
+    // prof: il valore di alpha della foglia non varia, perché imposti il color solo nel setup, quindi la somma è 255+255
     alpha = 0;
   } else foglia.display();
   colibri.move();
